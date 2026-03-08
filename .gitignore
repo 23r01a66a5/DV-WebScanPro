@@ -1,0 +1,6 @@
+echo __pycache__/ > .gitignore
+echo *.pyc >> .gitignore
+echo venv/ >> .gitignore
+echo .vscode/ >> .gitignore
+echo reports/*.json >> .gitignore
+echo reports/*.html >> .gitignore
