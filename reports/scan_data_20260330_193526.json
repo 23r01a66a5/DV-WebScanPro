@@ -1,0 +1,105 @@
+{
+  "target": "http://localhost/DVWA",
+  "scan_id": "20260330_193526",
+  "timestamp": "2026-03-30 19:35:26",
+  "vulnerabilities": [
+    {
+      "type": "SQL Injection (Error Based)",
+      "url": "http://localhost/DVWA/vulnerabilities/sqli/",
+      "parameter": "id",
+      "payload": "1' OR '1'='1",
+      "risk": "Medium",
+      "evidence": "SQL error message"
+    },
+    {
+      "type": "SQL Injection (Error Based)",
+      "url": "http://localhost/DVWA/vulnerabilities/sqli/",
+      "parameter": "id",
+      "payload": "' OR 1=1 --",
+      "risk": "Medium",
+      "evidence": "SQL error message"
+    },
+    {
+      "type": "SQL Injection (Error Based)",
+      "url": "http://localhost/DVWA/vulnerabilities/sqli/",
+      "parameter": "id",
+      "payload": "1' AND '1'='1",
+      "risk": "Medium",
+      "evidence": "SQL error message"
+    },
+    {
+      "type": "SQL Injection (Error Based)",
+      "url": "http://localhost/DVWA/vulnerabilities/sqli/",
+      "parameter": "id",
+      "payload": "1' ORDER BY 1--",
+      "risk": "Medium",
+      "evidence": "SQL error message"
+    },
+    {
+      "type": "SQL Injection (Error Based)",
+      "url": "http://localhost/DVWA/vulnerabilities/sqli/",
+      "parameter": "id",
+      "payload": "1' UNION SELECT user,password FROM users--",
+      "risk": "Medium",
+      "evidence": "SQL error message"
+    },
+    {
+      "type": "DOM XSS",
+      "url": "http://localhost/DVWA/vulnerabilities/xss_d/",
+      "parameter": "default",
+      "payload": "#<script>alert('XSS')</script>",
+      "risk": "Medium",
+      "evidence": "DOM manipulation possible"
+    },
+    {
+      "type": "DOM XSS",
+      "url": "http://localhost/DVWA/vulnerabilities/xss_d/",
+      "parameter": "default",
+      "payload": "javascript:alert('XSS')",
+      "risk": "Medium",
+      "evidence": "DOM manipulation possible"
+    },
+    {
+      "type": "Weak Credentials",
+      "url": "http://localhost/DVWA/login.php",
+      "credentials": "admin:password",
+      "risk": "High",
+      "remediation": "Enforce strong password policy, implement account lockout"
+    },
+    {
+      "type": "Insecure Session Cookie",
+      "cookie": "PHPSESSID",
+      "risk": "Medium",
+      "remediation": "Set Secure and HttpOnly flags on session cookies"
+    },
+    {
+      "type": "Missing Brute Force Protection",
+      "risk": "Medium",
+      "remediation": "Implement account lockout after failed attempts"
+    },
+    {
+      "type": "File Inclusion (IDOR)",
+      "url": "http://localhost/DVWA/vulnerabilities/fi/",
+      "parameter": "page",
+      "payload": "file1.php",
+      "risk": "High",
+      "remediation": "Validate file paths, use whitelist of allowed files"
+    }
+  ],
+  "summary": {
+    "total": 11,
+    "by_risk": {
+      "High": 2,
+      "Medium": 9,
+      "Low": 0
+    },
+    "by_type": {
+      "SQL Injection (Error Based)": 5,
+      "DOM XSS": 2,
+      "Weak Credentials": 1,
+      "Insecure Session Cookie": 1,
+      "Missing Brute Force Protection": 1,
+      "File Inclusion (IDOR)": 1
+    }
+  }
+}
